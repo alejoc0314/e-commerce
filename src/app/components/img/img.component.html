@@ -1,0 +1,7 @@
+<div class="photo-card">
+  @if (src) {
+    <img (error)="imgError()" [src]="src" alt="producto"/>
+  } @else {
+    <img width="200" [src]="imgDefault" alt="defaultImg" />
+  }
+</div>

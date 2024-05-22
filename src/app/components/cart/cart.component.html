@@ -1,0 +1,12 @@
+@for (product of products(); track product.id) {
+<div class="product-card">
+  <img [src]="product.image" alt="" />
+  <h3>{{ product.title }}</h3>
+  <h2>{{ product.quantity }}</h2>
+
+</div>
+} @empty {
+    <div class="product-card">
+    <!-- <img [src]="product.image" alt="" /> -->
+    </div>
+}

@@ -1,0 +1,17 @@
+<div class="product-card">
+  <p style="display: none">{{ product.id }}</p>
+  <div class="product-img">
+    <app-img [src]="product.image"></app-img>
+  </div>
+  <div class="product-info">
+    <div class="card-text">
+      <h2>{{ product.price }}$</h2>
+      <p>{{ product.title }}</p>
+    </div>
+    <div class="card-btn">
+      <button (click)="onAddToCart()">
+        Agregar al Carrito
+      </button>
+    </div>
+  </div>
+</div>

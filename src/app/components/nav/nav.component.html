@@ -1,0 +1,59 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggleMenu()">
+      <img src="../../../assets/svg/icon_menu.svg" alt="" />
+    </button>
+    <a href="">
+      <img src="../../../assets/svg/logo_yard_sale.svg" alt="logo" />
+    </a>
+    <div class="cart">
+      @if (productQuantity() > 0) {
+      <p>{{ productQuantity() }}</p>
+      }
+      <button (click)="toggleCart()">
+        <img src="../../../assets/svg/icon_shopping_cart.svg" alt="logo" />
+      </button>
+    </div>
+  </div>
+  <div class="side-menu" [class.active]="showMenu">
+    <button (click)="toggleMenu()">Close</button>
+    <ul>
+      <li><a href="">All</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
+    </ul>
+  </div>
+  <div class="cart-menu" [class.cartMenuMobileActive]="showCartMenu">
+    <button (click)="toggleCart()">Close</button>
+    <app-cart></app-cart>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="../../../assets/svg/logo_yard_sale.svg" alt="logo" />
+      </a>
+      <ul>
+        <li><a href="">All</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account"></div>
+      <div class="cart">
+        @if (productQuantity() > 0) {
+        <p>{{ productQuantity() }}</p>
+        }
+        <a href="">
+          <img src="../../../assets/svg/icon_shopping_cart.svg" alt="" />
+        </a>
+      </div>
+    </div>
+    <div class="cart-menu" [class.cartMenuMobileActive]="showCartMenu">
+      <button (click)="toggleCart()">Close</button>
+      <app-cart></app-cart>
+    </div>
+  </div>
+</div>
