@@ -1,19 +1,26 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 import { Product } from '../../../../models/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartItemsService {
-  private _cartItems = signal<Product[]>([]);
-  private _productsQuantity = signal<number>(0);
+export class CartServices {
+  private _cartItems: WritableSignal<Product[]> = signal([]);
+  private _productsQuantity: WritableSignal<number> = signal(0);
+  private _cartMenuIsActive: WritableSignal<boolean> = signal(false);
 
   get CartItems() {
     return this._cartItems;
   }
-
-  get ProductsQuantity() {
+  get productsQuantity() {
     return this._productsQuantity;
+  }
+
+  get cartMenuIsActive() {
+    return this._cartMenuIsActive;
+  }
+  toggleCartMenu() {
+    this.cartMenuIsActive.set(!this._cartMenuIsActive());
   }
 
   addProductToCart(product: Product) {

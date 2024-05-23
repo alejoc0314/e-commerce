@@ -1,17 +1,31 @@
-import { Component } from '@angular/core';
-import { CartItemsService } from '../../domains/shared/services/cart-items/cart-items.service';
+import { Component, effect } from '@angular/core';
+import { CartServices } from '../../domains/shared/services/cart-services/cart-items.service';
+import { NavComponent } from "../nav/nav.component";
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss',
+    selector: 'app-cart',
+    standalone: true,
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.scss',
+    imports: [NavComponent]
 })
 export class CartComponent {
-  public products = this.cartItemsService.CartItems;
+  public products = this.cartServices.CartItems;
+  public cartMenuIsActive = this.cartServices.cartMenuIsActive;
 
-  constructor(private cartItemsService: CartItemsService) {
-    console.log('Products: ', this.products);
+  constructor(private cartServices: CartServices) {}
+
+  toggleCart() {
+    this.cartServices.toggleCartMenu(); 
+  }
+
+  observeCartMenuIsActive() {
+    effect(() => {
+      if (this.cartMenuIsActive()) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+    });
   }
 }

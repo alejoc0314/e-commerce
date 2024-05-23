@@ -1,18 +1,22 @@
-@for (product of products(); track product.id) {
-<div class="products-list">
-  <div class="product-card">
-    <div class="product-img">
-      <img width="50" [src]="product.image" alt="" />
+<div class="cart-menu" [class.active]="cartMenuIsActive()">
+  <div class="cart-container">
+    @for (product of products(); track product.id) {
+    <div class="products-list">
+      <div class="product-card">
+        <div class="product-img">
+          <img width="50" [src]="product.image" alt="" />
+        </div>
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <h2>{{ product.quantity }}</h2>
+        </div>
+      </div>
     </div>
-    <div class="product-info">
-      <h3>{{ product.title }}</h3>
-      <h2>{{ product.quantity }}</h2>
+    } @empty {
+    <div class="product-card">
+      <!-- <img [src]="product.image" alt="" /> -->
+      <p>Aún no se han agregado productos...</p>
     </div>
+    }
   </div>
 </div>
-} @empty {
-<div class="product-card">
-  <!-- <img [src]="product.image" alt="" /> -->
-  <p>Aún no se han agregado productos...</p>
-</div>
-}

@@ -7,18 +7,18 @@ import { NavComponent } from './components/nav/nav.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    CommonModule,
-    ProductsComponent,
-    ImgComponent,
-    NavComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [
+        RouterOutlet,
+        FormsModule,
+        CommonModule,
+        ProductsComponent,
+        ImgComponent,
+        NavComponent,
+    ]
 })
 export class AppComponent {
   public imgParent: string = '';

@@ -4,15 +4,31 @@
       <img src="../../../assets/svg/icon_menu.svg" alt="" />
     </button>
     <a href="">
-      <img src="../../../assets/svg/logo_yard_sale.svg" alt="logo" />
+      <img
+        width="100"
+        src="../../../assets/images/green_mint_logo.jpg"
+        alt="logo"
+      />
     </a>
     <div class="cart">
-      @if (productQuantity() > 0) {
+      @if (productQuantity() > 0 && !cartMenuIsActive()) {
       <p>{{ productQuantity() }}</p>
-      }
       <button (click)="toggleCart()">
-        <img src="../../../assets/svg/icon_shopping_cart.svg" alt="logo" />
+        <i
+          class="fa fa-shopping-cart"
+          aria-hidden="true"
+          style="font-size: 1.6em; color: white"
+        ></i>
       </button>
+      } @else if (cartMenuIsActive()) {
+      <button (click)="toggleCart()">
+        <i
+          class="fa fa-arrow-left"
+          aria-hidden="true"
+          style="font-size: 1.5em; color: white"
+        ></i>
+      </button>
+      }
     </div>
   </div>
   <div class="side-menu" [class.active]="showMenu">
@@ -23,16 +39,16 @@
       <li><a href="">Electronics</a></li>
     </ul>
   </div>
-  <div class="cart-menu" [class.cartMenuMobileActive]="showCartMenu">
-    <button (click)="toggleCart()">Close</button>
-    <app-cart></app-cart>
-  </div>
 </div>
 <div class="hide-mobile">
   <div>
     <nav>
       <a class="logo" href="">
-        <img src="../../../assets/svg/logo_yard_sale.svg" alt="logo" />
+        <img
+          width="180"
+          src="../../../assets/images/green_mint_logo.jpg"
+          alt="logo"
+        />
       </a>
       <ul>
         <li><a href="">All</a></li>
@@ -41,19 +57,28 @@
       </ul>
     </nav>
     <div class="info">
-      <div class="account"></div>
+      <div class="account"><p>alejoc0314&#64;gmail.com</p></div>
       <div class="cart">
-        @if (productQuantity() > 0) {
-        <p>{{ productQuantity() }}</p>
+        @if (productQuantity() > 0 && !cartMenuIsActive()) {
+        <button (click)="toggleCart()">
+          <p>{{ productQuantity() }}</p>
+          <i
+            class="fa fa-shopping-cart"
+            aria-hidden="true"
+            style="font-size: 1.6em; color: white"
+          ></i>
+        </button>
+        } @else if (cartMenuIsActive()) {
+        <button (click)="toggleCart()">
+          <i
+            class="fa fa-arrow-left"
+            aria-hidden="true"
+            style="font-size: 1.5em; color: white"
+          ></i>
+        </button>
         }
-        <a href="">
-          <img src="../../../assets/svg/icon_shopping_cart.svg" alt="" />
-        </a>
       </div>
-    </div>
-    <div class="cart-menu" [class.cartMenuMobileActive]="showCartMenu">
-      <button (click)="toggleCart()">Close</button>
-      <app-cart></app-cart>
     </div>
   </div>
 </div>
+<app-cart></app-cart>

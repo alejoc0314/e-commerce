@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from '../cart/cart.component';
-import { CartItemsService } from '../../domains/shared/services/cart-items/cart-items.service';
+import { CartServices } from '../../domains/shared/services/cart-services/cart-items.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,16 +12,16 @@ import { CartItemsService } from '../../domains/shared/services/cart-items/cart-
 })
 export class NavComponent {
   public showMenu: boolean = false;
-  public showCartMenu: boolean = false;
-  public productQuantity = this.cartItemsService.ProductsQuantity;
+  public productQuantity = this.cartServices.productsQuantity;
+  public cartMenuIsActive = this.cartServices.cartMenuIsActive;
 
-  constructor(private cartItemsService: CartItemsService) {}
+  constructor(private cartServices: CartServices) {}
 
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }
 
   toggleCart() {
-    this.showCartMenu = !this.showCartMenu;
+    this.cartServices.toggleCartMenu(); 
   }
 }

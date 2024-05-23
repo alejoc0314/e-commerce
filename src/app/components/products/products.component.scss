@@ -1,24 +1,42 @@
+// Definir tamaños de pantalla
+$mobile-s: 10em;
+$mobile-m: 25em;
+$mobile-l: 40em;
+$tablet: 60em;
+$laptop: 80em;
+$laptop-l: 100em;
+
+// Mixin para generar estilos de grid
+@mixin generate-grid($columns) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, 1fr);
+  grid-gap: 1rem;
+}
+
+// Definir estilos de grid para diferentes tamaños de pantalla
 .products--grid {
   display: flex;
   flex-direction: column;
   grid-gap: 1rem;
   margin: 1rem;
-}
 
-// Tablets
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
-  .products--grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+  @media screen and (min-width: #{$mobile-s}) and (max-width: #{$mobile-m - 0.1em}) {
+    @include generate-grid(1);
   }
-}
 
-// Web
-@media screen and (min-width: 64em) {
-  .products--grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 1rem;
+  @media screen and (min-width: #{$mobile-m}) and (max-width: #{$mobile-l - 0.1em}) {
+    @include generate-grid(2);
+  }
+
+  @media screen and (min-width: #{$mobile-l}) and (max-width: #{$tablet - 0.1em}) {
+    @include generate-grid(3);
+  }
+
+  @media screen and (min-width: #{$tablet}) and (max-width: #{$laptop - 0.1em}) {
+    @include generate-grid(4);
+  }
+
+  @media screen and (min-width: #{$laptop}) {
+    @include generate-grid(5);
   }
 }
