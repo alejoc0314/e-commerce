@@ -31,7 +31,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/css/font-awesome.min.css"
+              "src/assets/css/font-awesome.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },

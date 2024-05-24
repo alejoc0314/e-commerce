@@ -1,0 +1,30 @@
+<div
+  class="welcome-background"
+  [ngStyle]="{
+    'background-image': 'url(' + currentImage() + ')'
+  }"
+>
+  <div class="welcome-phrase">
+    <h1>{{ currentPhrase() }}</h1>
+  </div>
+  <div class="welcome-search">
+    <div class="welcome-search-input">
+      <input type="text" />
+      <button class="welcome-search-button">
+        <i class="fa fa-search" aria-hidden="true" style="color: white;"></i>
+      </button>
+      <details class="dropdown">
+        <summary role="button">
+          <a class="button">Click on me!</a>
+        </summary>
+        <ul>
+          <li><a href="#">I'm a dropdown.</a></li>
+          <li><a href="#">In Pure CSS</a></li>
+          <li><a href="#">As in...</a></li>
+          <li><a href="#">No JavaScript.</a></li>
+          <li><a href="#">At All.</a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</div>

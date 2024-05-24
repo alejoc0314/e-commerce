@@ -5,6 +5,7 @@ import { ImgComponent } from './components/img/img.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { WelcomeComponent } from "./components/welcome/welcome.component";
 
 @Component({
     selector: 'app-root',
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
         ProductsComponent,
         ImgComponent,
         NavComponent,
+        WelcomeComponent
     ]
 })
 export class AppComponent {

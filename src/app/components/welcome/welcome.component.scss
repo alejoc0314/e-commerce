@@ -1,0 +1,224 @@
+.welcome-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #ebebeb);
+  }
+
+  .welcome-phrase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 900;
+    width: 80%;
+    height: 30%;
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      text-transform: uppercase;
+      font-family: "Exo 2", sans-serif;
+      font-weight: 900;
+      color: #5dbea3;
+      letter-spacing: -2px;
+      text-shadow: 3px 1px 1px rgba(128, 128, 128, 0.8),
+        2px 2px 1px rgba(128, 128, 128, 0.6),
+        4px 2px 1px rgba(128, 128, 128, 0.8),
+        3px 3px 1px rgba(128, 128, 128, 0.6),
+        5px 3px 1px rgba(128, 128, 128, 0.8),
+        4px 4px 1px rgba(128, 128, 128, 0.6),
+        6px 4px 1px rgba(128, 128, 128, 0.8),
+        5px 5px 1px rgba(128, 128, 128, 0.6),
+        7px 5px 1px rgba(128, 128, 128, 0.8),
+        6px 6px 1px rgba(128, 128, 128, 0.6),
+        8px 6px 1px rgba(128, 128, 128, 0.8),
+        7px 7px 1px rgba(128, 128, 128, 0.6),
+        9px 7px 1px rgba(128, 128, 128, 0.8);
+      margin-bottom: 0.8rem;
+      outline: none;
+      text-align: center;
+      transition: 700ms ease;
+      font-style: italic;
+      -webkit-text-stroke: 1px #4ca088;
+      background: linear-gradient(
+        to bottom,
+        rgba(93, 190, 163, 0.1) 70%,
+        rgba(93, 190, 163, 0)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    h1:hover {
+      font-variation-settings: "wght" 582;
+      letter-spacing: 1px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .welcome-phrase {
+      width: 60%;
+      height: 30%;
+    }
+
+    h1 {
+      font-size: clamp(
+        2rem,
+        6vw,
+        4rem
+      ); /* Reducir el tamaño del texto para pantallas pequeñas */
+    }
+  }
+
+  .welcome-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+    width: 60%;
+    height: 15%;
+    z-index: 900;
+    border-radius: 10px;
+    background-color: white;
+    .welcome-search-input {
+      width: 90%;
+      height: 30%;
+      input {
+        width: 60%;
+        height: 100%;
+        padding-left: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid #c5c4c4;
+        border-right: none;
+        caret-color: #5dbea3;
+      }
+      input:focus {
+        outline: none;
+      }
+      button {
+        width: 8%;
+        height: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border: 1px solid #5dbea3;
+        border-left: none;
+        background-color: #5dbea3;
+      }
+
+      $button-background: #5dbea3;
+      $button-color: white;
+      $dropdown-highlight: #5dbea3;
+      $dropdown-width: 160px;
+      $dropdown-background: white;
+      $dropdown-color: black;
+
+      a.button {
+        display: inline;
+        padding: 0.4em;
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 1px solid #5dbea3;
+        background: $button-background;
+        color: $button-color;
+        cursor: pointer;
+        &:active {
+          filter: brightness(75%);
+        }
+      }
+
+      // Dropdown styles
+      .dropdown {
+        width: 20%;
+        position: relative;
+        padding: 0;
+        margin-right: 1em;
+        display: inline;
+        border: none;
+        summary {
+          width: 100%;
+          list-style: none;
+          list-style-type: none;
+
+          // Esconder el icono del detalle
+          &::-webkit-details-marker {
+            display: none;
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          a.button {
+            width: 100%;
+            // Estilo cuando se enfoca el summary
+            &:focus {
+              border: 2px solid white;
+            }
+          }
+        }
+
+        ul {
+          position: absolute;
+          margin: 20px 0 0 0;
+          padding: 20px 0;
+          width: $dropdown-width;
+          left: 50%;
+          margin-left: calc(($dropdown-width / 2) * -1);
+          box-sizing: border-box;
+          z-index: 2;
+
+          background: $dropdown-background;
+          border-radius: 6px;
+          list-style: none;
+
+          li a:link,
+          li a:visited {
+            display: inline-block;
+            padding: 10px 0.8rem;
+            width: 100%;
+            box-sizing: border-box;
+
+            color: $dropdown-color;
+            text-decoration: none;
+          }
+
+          li a:hover {
+            background-color: $dropdown-highlight;
+            color: $dropdown-background;
+          }
+
+          // Triángulo del dropdown
+          &::before {
+            content: " ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -10px;
+            left: 50%;
+            margin-left: -10px;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent $dropdown-background
+              transparent;
+          }
+        }
+      }
+    }
+  }
+}
