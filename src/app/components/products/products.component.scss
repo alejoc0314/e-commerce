@@ -10,19 +10,19 @@ $laptop-l: 100em;
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 2em 0 2em 0;
+  padding: 1em 0 2em 0;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   flex-direction: column;
 
   @mixin generate-grid($columns) {
     display: grid;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     grid-template-columns: repeat(#{$columns}, 1fr);
     grid-gap: 1rem;
     width: 60%;
-    margin: 0 auto; 
+    margin: 0 auto;
   }
 
   .products--grid {
@@ -36,15 +36,15 @@ $laptop-l: 100em;
     }
 
     @media screen and (min-width: #{$mobile-m}) and (max-width: #{$mobile-l - 0.1em}) {
-      @include generate-grid(2);
+      @include generate-grid(1);
     }
 
     @media screen and (min-width: #{$mobile-l}) and (max-width: #{$tablet - 0.1em}) {
-      @include generate-grid(3);
+      @include generate-grid(2);
     }
 
     @media screen and (min-width: #{$tablet}) and (max-width: #{$laptop - 0.1em}) {
-      @include generate-grid(4);
+      @include generate-grid(3);
     }
 
     @media screen and (min-width: #{$laptop}) {

@@ -8,21 +8,25 @@
     <h1>{{ currentPhrase() }}</h1>
   </div>
   <div class="welcome-search">
-    <div class="welcome-search-input">
-      <input type="text" />
-      <button class="welcome-search-button">
-        <i class="fa fa-search" aria-hidden="true" style="color: white;"></i>
-      </button>
+    <div class="welcome-search-input col-12">
+      <div class="search-box">
+        <input type="text" placeholder="Buscar un producto..." />
+        <button class="welcome-search-button">
+          <i class="fa fa-search" aria-hidden="true" style="color: white"></i>
+        </button>
+      </div>
       <details class="dropdown">
         <summary role="button">
-          <a class="button">Click on me!</a>
+          <p class="button">
+            Ordenar por
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </p>
         </summary>
         <ul>
-          <li><a href="#">I'm a dropdown.</a></li>
-          <li><a href="#">In Pure CSS</a></li>
-          <li><a href="#">As in...</a></li>
-          <li><a href="#">No JavaScript.</a></li>
-          <li><a href="#">At All.</a></li>
+          <li><a href="#">Moda</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Joyería</a></li>
+          <li><a href="#">Tecnología</a></li>
         </ul>
       </details>
     </div>

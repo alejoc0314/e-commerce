@@ -16,7 +16,6 @@ import { Card } from '../../models/card.model';
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
-  
   // Variables para las frases de bienvenida
 
   public cards: Card[] = [
@@ -46,7 +45,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
         'Descubre nuestros productos más populares y las categorías más buscadas.',
     },
   ];
-  public currentPhrase: WritableSignal<string> = signal('Bienvenido a Nuestra Tienda');
+  public currentPhrase: WritableSignal<string> = signal(
+    'Bienvenido a Green Mint'
+  );
 
   // Variables para el carrusel
 
@@ -58,7 +59,6 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   public currentImage: WritableSignal<string> = signal(this.images[0]);
   public imageCounter: number = 0;
   private intervalId!: number;
-
 
   nextImage() {
     this.imageCounter = (this.imageCounter + 1) % this.images.length;

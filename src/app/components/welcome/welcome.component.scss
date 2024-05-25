@@ -1,3 +1,10 @@
+$mobile-s: 10em;
+$mobile-m: 25em;
+$mobile-l: 40em;
+$tablet: 60em;
+$laptop: 80em;
+$laptop-l: 100em;
+
 .welcome-background {
   display: flex;
   flex-direction: column;
@@ -5,10 +12,10 @@
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 75% 25%;
   transition: all 0.5s ease-in-out;
   &::before {
     content: "";
@@ -25,11 +32,11 @@
     justify-content: center;
     align-items: center;
     z-index: 900;
-    width: 80%;
-    height: 30%;
+    width: 60%;
+    height: 15%;
 
     h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
+      font-size: clamp(2rem, 10vw, 3.5rem);
       text-transform: uppercase;
       font-family: "Exo 2", sans-serif;
       font-weight: 900;
@@ -48,10 +55,9 @@
         8px 6px 1px rgba(128, 128, 128, 0.8),
         7px 7px 1px rgba(128, 128, 128, 0.6),
         9px 7px 1px rgba(128, 128, 128, 0.8);
-      margin-bottom: 0.8rem;
       outline: none;
       text-align: center;
-      transition: 700ms ease;
+      transition: all ease-in-out 0.3s;
       font-style: italic;
       -webkit-text-stroke: 1px #4ca088;
       background: linear-gradient(
@@ -67,20 +73,83 @@
       font-variation-settings: "wght" 582;
       letter-spacing: 1px;
     }
-  }
 
-  @media screen and (max-width: 768px) {
-    .welcome-phrase {
+    @media screen and (max-width: #{$tablet}) {
       width: 60%;
       height: 30%;
+
+      h1 {
+        font-size: clamp(
+          1rem,
+          6vw,
+          1rem
+        ); // Reducir el tamaño del texto para pantallas pequeñas
+      }
     }
 
-    h1 {
-      font-size: clamp(
-        2rem,
-        6vw,
-        4rem
-      ); /* Reducir el tamaño del texto para pantallas pequeñas */
+    @media screen and (min-width: #{$mobile-s}) and (max-width: #{$mobile-m - 0.1em}) {
+      width: 60%;
+      height: 15%;
+
+      h1 {
+        font-size: clamp(1rem, 6vw, 1.5rem);
+      }
+    }
+
+    @media screen and (min-width: #{$mobile-m}) and (max-width: #{$mobile-l - 0.1em}) {
+      width: 70%;
+      height: 20%;
+
+      h1 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+      }
+    }
+
+    @media screen and (min-width: #{$mobile-l}) and (max-width: #{$tablet - 0.1em}) {
+      width: 70%;
+      height: 25%;
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 2.5rem);
+      }
+    }
+
+    @media screen and (min-width: 50em) and (max-width: #{$tablet - 0.1em}) {
+      width: 70%;
+      height: 25%;
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 2.75rem);
+      }
+    }
+
+    @media screen and (min-width: #{$tablet}) and (max-width: #{$laptop - 0.1em}) {
+      width: 60%;
+      height: 25%;
+
+      h1 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+    }
+
+    @media screen and (min-width: #{$laptop}) {
+      width: 60%;
+      height: 15%;
+
+      h1 {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media screen and (min-width: 1273px) and (max-width: 1273px) and (min-height: 1804px) and (max-height: 1804px) {
+      .welcome-phrase {
+        width: 65%;
+        height: 30%;
+
+        h1 {
+          font-size: clamp(2.2rem, 10vw, 3rem);
+        }
+      }
     }
   }
 
@@ -89,69 +158,79 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 8%;
+    margin-bottom: 3%;
     width: 60%;
-    height: 15%;
+    height: 10%;
     z-index: 900;
     border-radius: 10px;
     background-color: white;
     .welcome-search-input {
+      display: flex;
+      flex-direction: row;
       width: 90%;
-      height: 30%;
-      input {
-        width: 60%;
+      height: 50%;
+      .search-box {
+        width: 85%;
         height: 100%;
-        padding-left: 10px;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        border: 1px solid #c5c4c4;
-        border-right: none;
-        caret-color: #5dbea3;
-      }
-      input:focus {
-        outline: none;
-      }
-      button {
-        width: 8%;
-        height: 100%;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border: 1px solid #5dbea3;
-        border-left: none;
-        background-color: #5dbea3;
+        input {
+          width: 90%;
+          height: 100%;
+          padding-left: 10px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          border: 1px solid #ece5e5;
+          border-right: none;
+          caret-color: #5dbea3;
+        }
+        input:focus {
+          outline: none;
+        }
+        input::placeholder {
+          color: #e3dfdf;
+        }
+        button {
+          width: 8%;
+          height: 100%;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border: 1px solid #5dbea3;
+          border-left: none;
+          background-color: #5dbea3;
+        }
       }
 
-      $button-background: #5dbea3;
-      $button-color: white;
+      $button-color: black;
       $dropdown-highlight: #5dbea3;
       $dropdown-width: 160px;
       $dropdown-background: white;
       $dropdown-color: black;
 
-      a.button {
-        display: inline;
-        padding: 0.4em;
-        border-radius: 10px;
-        box-sizing: border-box;
-        border: 1px solid #5dbea3;
-        background: $button-background;
+      p.button {
+        width: 100%;
+        display: inline-block;
+        padding: 0.55em;
+        border: 1px solid white;
+        background-color: white;
         color: $button-color;
         cursor: pointer;
-        &:active {
-          filter: brightness(75%);
+        text-align: center;
+        text-decoration: none;
+        transition: all ease-in-out 0.3s;
+        &:hover {
+          color: $dropdown-highlight;
         }
       }
-
       // Dropdown styles
       .dropdown {
-        width: 20%;
+        width: 15%;
+        height: 100%;
         position: relative;
         padding: 0;
-        margin-right: 1em;
-        display: inline;
+        display: inline-block;
         border: none;
         summary {
           width: 100%;
+          height: 50%;
           list-style: none;
           list-style-type: none;
 
@@ -164,8 +243,9 @@
             outline: none;
           }
 
-          a.button {
+          p.button {
             width: 100%;
+
             // Estilo cuando se enfoca el summary
             &:focus {
               border: 2px solid white;
@@ -174,17 +254,18 @@
         }
 
         ul {
+          display: none;
           position: absolute;
           margin: 20px 0 0 0;
           padding: 20px 0;
           width: $dropdown-width;
           left: 50%;
-          margin-left: calc(($dropdown-width / 2) * -1);
+          margin-left: calc((#{$dropdown-width} / 2) * -1);
           box-sizing: border-box;
           z-index: 2;
-
           background: $dropdown-background;
           border-radius: 6px;
+          border: 1px solid #ece5e5;
           list-style: none;
 
           li a:link,
@@ -193,7 +274,6 @@
             padding: 10px 0.8rem;
             width: 100%;
             box-sizing: border-box;
-
             color: $dropdown-color;
             text-decoration: none;
           }
@@ -217,6 +297,10 @@
             border-color: transparent transparent $dropdown-background
               transparent;
           }
+        }
+
+        &[open] ul {
+          display: block;
         }
       }
     }
